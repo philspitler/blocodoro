@@ -30,7 +30,7 @@ angular.module('blocodoroApp')
 
       var setTimer = function () {
         var duration = $window.moment.duration(time);
-        scope.timerdata = duration.minutes() + ':' + duration.seconds();
+        scope.timerdata = ('0' + duration.minutes()).slice(-2) + ':' + ('0' + duration.seconds()).slice(-2);
         time -= oneSecond;
       };
 
