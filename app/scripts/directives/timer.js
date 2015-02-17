@@ -16,6 +16,17 @@ angular.module('blocodoroApp')
     },
     link: function postLink(scope, element, attrs) {
       //element.text(scope.duration.seconds());
+      $window.ion.sound({
+        sounds: [
+          { name: 'glass' },
+          { name: 'bell_ring' }
+        ],
+        volume: 0.2,
+        path: '/bower_components/ionsound/sounds/',
+        preload: true
+      });
+
+
       var millis = function (seconds) {
         return seconds * 1000;
       };
@@ -30,6 +41,9 @@ angular.module('blocodoroApp')
 
       var setTimer = function () {
         var duration = $window.moment.duration(time);
+        if (time === 0) {
+          $window.ion.sound.play('bell_ring');
+        }
         scope.timerdata = ('0' + duration.minutes()).slice(-2) + ':' + ('0' + duration.seconds()).slice(-2);
         time -= oneSecond;
       };
