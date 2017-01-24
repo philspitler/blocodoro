@@ -9,31 +9,20 @@
  * Main module of the application.
  */
 angular
-  .module('blocodoroApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  .module('blocodoroApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        templateUrl: 'views/about.html'
       })
       .when('/shortBreak', {
-        templateUrl: 'views/shortbreak.html',
-        controller: 'ShortbreakCtrl'
+        templateUrl: 'views/shortbreak.html'
       })
       .when('/longBreak', {
-        templateUrl: 'views/longbreak.html',
-        controller: 'LongbreakCtrl'
+        templateUrl: 'views/longbreak.html'
       })
       .otherwise({
         redirectTo: '/'
